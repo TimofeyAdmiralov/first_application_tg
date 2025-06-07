@@ -13,23 +13,18 @@
 </body>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <script>
-    const tg = window.Telegram.WebApp;
+    const tg = window.Telegram.WebView();
+
+    const usercard = document.getElementById('usercard');
 
 
-    document.addEventListener('DOMContentLoader',function () {
-        const usercard = document.getElementById('usercard');
+    if(usercard) {
+        const b =  document.createElement('b');
 
+        b.innerText = `Добро пожаловать,
+        ${tg.initDataUnsafe.user.first_name}.`
 
-        if(usercard) {
-            const b =  document.createElement('b');
-
-            b.innerText = `Добро пожаловать,
-            ${tg.initDataUnsafe.user.first_name}.`
-
-            usercard.appendChild(b);
-        } else {
-            console.error(`Error - ${error}`)
+        usercard.appendChild(b);
         }
-    })
 </script>
 </html>
