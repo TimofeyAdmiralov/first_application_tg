@@ -25,7 +25,7 @@
         if(usercard) {
             const b =  document.createElement('b');
 
-            b.innerHTML = `Добро пожаловать,${tg.initDataUnsafe.first_name}.`
+            b.innerText = `Добро пожаловать,${tg.initDataUnsafe.user.first_name}.`
 
             usercard.appendChild(b);
         } else {
