@@ -4,22 +4,16 @@ const tg = window.Telegram.WebApp;
 // расширяем окно
 tg.expand();
 
-// Дождитесь полной загрузки DOM, если ваш скрипт в head
-document.addEventListener('DOMContentLoaded', () => {
-  const usercard = document.getElementById('usercard');
+// Прописываем логику в DOM Элементе
+document.addEventListener('DOMContentLoaded',function () {
+    const usercard = document.getElementById('usercard');
 
-  if (usercard) {
-    // Создаем элемент <b>
-    const p = document.createElement('b');
+    if(usercard) {
+        let b = document.createElement('b');
 
-    // Используем шаблонную строку с правильными бэктиками
-    p.innerText = `Добро пожаловать, 
-${tg.initDataUnsafe?.user?.first_name || ''} 
-${tg.initDataUnsafe?.user?.last_name || ''}`;
-
-    // Добавляем элемент в usercard
-    usercard.appendChild(p);
-  } else {
-    console.error('Element with id "usercard" not found.');
-  }
-});
+        b.innerHTML = ```
+        Добро пожаловать,${tg.initDateUnsafe.first_name}```
+    } else {
+        b.innerHTML = `Произошла ошибка при загрузке страницы!`
+    }
+})
