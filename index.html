@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <!-- Connect scripts -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <title>Show first_name application</title>
 </head>
 <body>
@@ -12,6 +14,23 @@
     </div>
 </body>
 
-<script src="https://telegram.org/js/telegram-web-app.js"></script>
-<script src="app.js"></script>
+<script>
+    const tg = window.Telegram.WebView;
+
+
+    document.addEventListener('DOMContentLoader',function () {
+        const usercard = document.getElementById('usercard');
+
+
+        if(usercard) {
+            const b =  document.createElement('b');
+
+            b.innerHTML = `Добро пожаловать,${tg.initDataUnsafe.first_name}.`
+
+            usercard.appendChild(b);
+        } else {
+            console.error(`Error - ${error}`)
+        }
+    })
+</script>
 </html>
